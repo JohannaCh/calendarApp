@@ -1,25 +1,17 @@
+import { useState } from 'react';
 import { Calendar } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import { addHours } from 'date-fns';
 import { NavBar, CalendarEventBox, CalendarModal } from "../";
-import { localizer} from '../../helpers/CalendarLocalizer';
-import { getMessagesES } from '../../helpers/getMessages';
-import { useState } from 'react';
+import { localizer, getMessagesES} from '../../helpers';
+import { useUiStore, useCalendarStore } from '../../hooks';
 
-const events = [{
-    title:'Reunion Con Equipo',
-    notes:'No olvidar preparar todo',
-    start: new Date(),
-    end: addHours(new Date(), 2), //le sumo 2 horas
-    bgColor: '#46467a',
-    user:{
-      _id:'123',
-      name:'Johanna'
-    }
-}]
 
 export const CalendarPage = () => {
+
+  const { openDateModal } = useUiStore();
+  const { events, setActiveEvent } = useCalendarStore();
 
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'week');
 
@@ -38,11 +30,11 @@ export const CalendarPage = () => {
   }
 
   const onDoubleClick = ( event )=>{
-    
+    openDateModal();
   };
 
   const onSelect = ( event )=>{
-
+    setActiveEvent( event);
   };
 
   const onViewChanged = ( event )=>{

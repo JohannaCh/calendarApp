@@ -1,2 +1,2 @@
-import * as localizer from './CalendarLocalizer';
-import * as getMessagesES from './getMessages';
+export * from './CalendarLocalizer';
+export * from './getMessages';
