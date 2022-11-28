@@ -68,3 +68,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* fabs floating action buttons*/
+
+.fab{
+  border-radius: 100%;
+  border: none;
+  background-color: #646cff;
+  bottom: 25px;
+  font-size: 30px;
+  padding: 10px 20px;
+  position: fixed;
+  right: 45px;
+
+}
+.fab-delete{
+  border-radius: 100%;
+  border: none;
+  background-color: #fd4d4d;
+  bottom: 25px;
+  font-size: 25px;
+  padding: 10px 20px;
+  position: fixed;
+  left: 20px;
+}
